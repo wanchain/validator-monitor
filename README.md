@@ -83,11 +83,12 @@ Insert one line to the end of the file and save:
 NOTE: please replace "~/validator-monitor" with your own validator-monitor path.
 
 ## Report
-The report is send by email.
-If no alerts, the report will be sent daily, which subject is:
-<br/>NORMAL - Wanchain Validator Monitor
+The report is sent by email.
+<br/><br/>
+If no alerts, the report will be sent daily, with subject:
 <br/>
-<br/>
-Else, the alerts email is sent immediately, which subject is:
+NORMAL - Wanchain Validator Monitor
+<br/><br/>
+Else, the alerts email is sent immediately, the subject is:
 <br/>
 ALERT - Wanchain Validator Monitor
