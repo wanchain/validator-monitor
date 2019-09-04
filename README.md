@@ -10,11 +10,11 @@ A tool to monitor wanchain validator, the metrics including:
 
 ## Prerequisites
 
-Install [Node.js](https://nodejs.org) with [npm](http://npmjs.org).
+Install [Node.js](https://nodejs.org) (containing [npm](http://npmjs.org)).
 
 ## Install Dependencies
 
-Enter the validator-monitor directory to execute command:
+Execute the command in the validator-monitor directory:
 ```bash
 npm install
 ```
@@ -40,15 +40,15 @@ All of these items are required, should be set according to your email service p
 | :---         | :---        |
 | ipcPath      | required    |
 
-Validator-monitor and gwan communicate via IPC, ipcPath should be set according to the gwan running parameters.
+The validator-monitor communicates with gwan via IPC, ipcPath should be set according to the gwan running parameters.
 
 <li>monitor group</li>
 
 | item         | description |
 | :---         | :---        |
-| diskName     | default is root directory ("/"), should be changed if gwan uses other disk |
-| reportName   | optional, used to identify emails sent from different validators if you have more than one |
-| reportHour   | default is 10, the time (in hours) to send the daily report, based on the time zone of the gwan server |
+| diskName     | default is the root directory ("/"), should be changed if gwan uses other disk |
+| reportName   | optional, used to identify emails from different validators if you have more than one |
+| reportHour   | default is 10, the time (in hours) to send daily report, based on the time zone of the gwan server |
 
 <br>
 
@@ -64,31 +64,35 @@ Validator-monitor and gwan communicate via IPC, ipcPath should be set according 
 
 ## Test Working
 
-Enter the validator-monitor directory to execute command:
+Execute the command in the validator-monitor directory:
 ```bash
 npm run test
 ```
-Then check your inbox of the email you configured in email.receiver, there should be a message with the subject "Wanchain Validator Monitor".
+Then check the inbox of the email configured by email.receiver, there should be a message with subject "Wanchain Validator Monitor".
 
 ## Start Monitor
-The validator-monitor is scheduled by crontab, first creating a task:
+The validator-monitor is scheduled by crontab, you need to create a task:
 ```bash
 crontab -e
 ```
-Insert one line to the end of the file and save:
+Insert one line at the end of the opened file and save:
 <br/>
 ```bash
 */10 * * * * ~/validator-monitor/start.sh > /tmp/validator-monitor-log 2>&1
 ```
+You can check the task with:
+```bash
+crontab -l
+```
 NOTE: please replace "~/validator-monitor" with your own validator-monitor path.
 
-## Report
-The report is sent by email.
+## The Reports
+Reports will be sent by email.
 <br/><br/>
-If no alerts, the report will be sent daily, with subject:
-<br/>
-NORMAL - Wanchain Validator Monitor
-<br/><br/>
-Else, the alerts email is sent immediately, the subject is:
+If there are any alert, a alerts email is sent immediately, with subject:
 <br/>
 ALERT - Wanchain Validator Monitor
+<br/><br/>
+Else, a report email will be sent daily, the subject is:
+<br/>
+NORMAL - Wanchain Validator Monitor
