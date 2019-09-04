@@ -1,0 +1,20 @@
+{
+  "name": "validator-monitor",
+  "version": "1.0.0",
+  "description": "Wanchain Validator Monitor",
+  "url": "https://www.wanchain.org",
+  "author": {
+    "name": "wanchain",
+    "email": "techsupport@wanchain.org"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./monitor.js",
+    "test": "node ./monitor.js test"
+  },
+  "dependencies": {
+    "web3": "^1.2.1",
+    "bignumber.js": "^7.2.1",
+    "nodemailer": "^5.1.1"
+  }
+}

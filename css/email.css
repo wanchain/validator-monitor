@@ -1,0 +1,49 @@
+<style media="all" type="text/css">
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 0.8em;
+    color: black;
+    background: white;
+}
+
+h3 {
+    margin: 0;
+    color: blue;
+}
+
+/* Statistics table */
+.statistics {
+    width: 60%;
+    border-collapse: collapse;
+    empty-cells: show;
+    margin-bottom: 0.2em;
+}
+
+.statistics tr:hover {
+    background: #ECECF7;
+    cursor: pointer;
+}
+.statistics th, .statistics td {
+    border: 1px solid;
+   
+}
+.statistics th {
+    background-color: #DCDCF0;
+
+}
+.statistics td {
+    vertical-align: middle;
+}
+
+.stats-col-id {
+    color:blue;
+    width: 5em;
+    text-align: center;
+}
+.stats-col-status {
+    width: 5em;
+    text-align: left;
+}
+
+</style>
