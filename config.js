@@ -13,9 +13,9 @@ module.exports = {
         ipcPath: ""      // required, should be set according to the gwan running parameters. eg. ~/gwan/gwan.ipc
     },
     monitor: {
-        diskName: "/",   // optional, should be changed if gwan uses other disk
+        diskName: "/",   // should be changed if gwan uses other disk
         reportName: "",  // optional, used to identify emails sent from different validators if you have more than one
-        reportHour: "10" // optional, the time (in hours) to send the daily report, based on the time zone of the gwan server
+        reportHour: "10" // the time (in hours) to send the daily report, based on the time zone of the gwan server
     },
     threshold: {
         cpuUsage: 80,    // %
