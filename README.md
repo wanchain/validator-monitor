@@ -18,7 +18,7 @@ Execute the command in the validator-monitor directory:
 ```bash
 npm install
 ```
-## Configure Parameters
+## Configuration
 
 The configure file is named config.js, it contains several goups and items:
 <li>email group</li>
@@ -85,7 +85,7 @@ crontab -l
 ```
 NOTE: please replace "~/validator-monitor" with your own validator-monitor path.
 
-## The Reports
+## Report
 Reports will be sent by email.
 <br/><br/>
 If there is any alert, an email will be sent immediately, with subject:
