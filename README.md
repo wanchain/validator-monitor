@@ -9,11 +9,15 @@ A tool to monitor Wanchain validator running status, including:
 <li>Coinbase Balance</li>
 
 ## Prerequisites
-
 Install [Node.js](https://nodejs.org) and [npm](http://npmjs.org).
 
+## Download
+Download source code from github
+```bash
+git clone https://github.com/wanchain/validator-monitor.git
+cd validator-monitor
+```
 ## Install Dependencies
-
 Execute the command in the validator-monitor directory:
 ```bash
 npm install
