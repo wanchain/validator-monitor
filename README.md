@@ -81,7 +81,7 @@ crontab -e
 Insert one line at the end of the opened file and save:
 <br/>
 ```bash
-*/10 * * * * ~/validator-monitor/start.sh > ~/validator-monitor/validator-monitor-log 2>&1
+*/10 * * * * ~/validator-monitor/start.sh > ~/validator-monitor/validator-monitor.log 2>&1
 ```
 You can check the task with:
 ```bash
