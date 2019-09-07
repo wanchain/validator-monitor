@@ -61,7 +61,8 @@ async function monitor() {
   } else {
     metrics.push(new notify.Metric(true, "Balance", "unknown", "gwan unavailable"));
     alert = true;
-  }  
+  } 
+  console.log(metrics);
   // report
   await report(alert, metrics);
   // close ipc
