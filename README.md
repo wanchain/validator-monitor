@@ -99,3 +99,10 @@ ALERT - Wanchain Validator Monitor
 Otherwise, a report email will be sent daily, with subject:
 <br/>
 NORMAL - Wanchain Validator Monitor
+
+## FAQ
+### IPC connect failed
+Make sure the gwan.ipc could be accessed with read and write privilege. Run the command:
+```bash
+sudo chmod 755 gwan.ipc
+```
