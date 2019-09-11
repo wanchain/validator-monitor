@@ -44,7 +44,7 @@ All of above items are required, and should be set according to your email servi
 | :---         | :---        |
 | ipcPath      | required    |
 
-The monitor communicates with gwan via IPC, so ipcPath should be set according to the gwan startup parameters. The default path is ~/.wanchain/gwan.ipc
+The monitor communicates with gwan via IPC, so ipcPath should be set according to the gwan startup parameters. The default path is /home/*user*/.wanchain/gwan.ipc. Please use the absolute path.
 
 <li>monitor group</li>
 
