@@ -104,5 +104,5 @@ NORMAL - Wanchain Validator Monitor
 ### IPC connect failed
 Make sure the gwan.ipc could be accessed with read and write privilege. Run the command:
 ```bash
-sudo chmod 755 gwan.ipc
+sudo chmod 766 gwan.ipc
 ```
