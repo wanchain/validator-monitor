@@ -44,7 +44,7 @@ All of above items are required, and should be set according to your email servi
 | :---         | :---        |
 | ipcPath      | required    |
 
-The monitor communicates with gwan via IPC, so ipcPath should be set according to the gwan startup parameters. The default path is ~/.wanchain/gwan.ipc
+The monitor communicates with gwan via IPC, so ipcPath should be set according to the gwan startup parameters. The default path is /home/*user*/.wanchain/gwan.ipc. Please use the absolute path.
 
 <li>monitor group</li>
 
@@ -99,3 +99,10 @@ ALERT - Wanchain Validator Monitor
 Otherwise, a report email will be sent daily, with subject:
 <br/>
 NORMAL - Wanchain Validator Monitor
+
+## FAQ
+### IPC connect failed
+Make sure the gwan.ipc could be accessed with read and write permissions. Run the command:
+```bash
+sudo chmod 766 gwan.ipc
+```
