@@ -19,15 +19,21 @@ async function monitor() {
   metrics.push(new notify.Metric(false, "Report Time", new Date().toUTCString()));
   // cpu
   let cpu = os.getCpuLoad();
-  metricAlert = (cpu >= config.threshold.cpuUsage);
-  metrics.push(new notify.Metric(metricAlert, "CPU Usage", cpu + "%"));
+  let cores = (cpu.cpus > 1)? " cpus" : " cpu";
+  metricAlert = (cpu.load >= config.threshold.cpuUsage);
+  metrics.push(new notify.Metric(metricAlert, "CPU Usage", cpu.load + "%", cpu.cpus + cores));
   alert = alert || metricAlert;
   // mem
-  let mem = os.getMemInfo();
-  let detail = mem.total + " GB in total, " + mem.free + " GB free";
-  metricAlert = (mem.usage >= config.threshold.memoryUsage);
-  metrics.push(new notify.Metric(metricAlert, "Memory Usage", mem.usage + "%", detail));
-  alert = alert || metricAlert;
+  let mem = await os.getMemInfo();
+  if (mem) {
+    let detail = mem.total + " GB in total, " + mem.free + " GB free";
+    metricAlert = (mem.usage >= config.threshold.memoryUsage);
+    metrics.push(new notify.Metric(metricAlert, "Memory Usage", mem.usage + "%", detail));
+    alert = alert || metricAlert;
+  } else {
+    metrics.push(new notify.Metric(true, "Memory Usage", "unknown", "memory unavailable"));
+    alert = true;
+  }
   // disk
   let diskName = "Disk" + "(" + config.monitor.diskName + ")" + " Usage";
   let disk = await os.getDiskInfo(config.monitor.diskName);
@@ -52,14 +58,14 @@ async function monitor() {
     alert = true;
   }
   // balance
-  let account = await wan.getBalance();
+  let account = await wan.getCoinbaseBalance();
   if (account) {
     let min = new BigNumber(config.threshold.balance);
     metricAlert = account.balance.isLessThan(min);
-    metrics.push(new notify.Metric(metricAlert, "Balance", account.balance.toString(10) + " WAN", account.address));
+    metrics.push(new notify.Metric(metricAlert, "Coinbase Balance", account.balance.toString(10) + " WAN", account.address));
     alert = alert || metricAlert;
   } else {
-    metrics.push(new notify.Metric(true, "Balance", "unknown", "gwan unavailable"));
+    metrics.push(new notify.Metric(true, "Coinbase Balance", "unknown", "gwan unavailable"));
     alert = true;
   } 
   console.log(metrics);
