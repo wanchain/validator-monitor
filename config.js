@@ -1,5 +1,5 @@
 module.exports = {
-    title: "DEX-API", 
+    title: "Validator Status", 
     email: { // required 
         // sender, should be set according to your email service provider, make sure that SMTP is enabled and authentication is correct
         smtpServer: "",  // eg. smtp.office365.com
